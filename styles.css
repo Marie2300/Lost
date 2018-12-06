@@ -1,0 +1,358 @@
+body {
+    margin: 0;
+    overflow: hidden;
+
+}
+
+#screen {
+    position: absolute;
+    width: 100vw;
+    height: 56.25vw;
+    overflow: hidden;
+}
+
+game {
+    position: relative;
+}
+
+/************* STARTSIDE ****************/
+
+#start_screen {
+    background-image: url("titel_baggrund.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+
+#play_button {
+    background-image: url("play.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    width: 20vw;
+    height: 10vw;
+    left: 73vw;
+    top: 12vw;
+    cursor: pointer;
+}
+
+
+#settings_button {
+    background-image: url("settings_button.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    width: 31.5vw;
+    height: 11vw;
+    left: -6vw;
+    top: -4vw;
+    cursor: pointer;
+}
+
+/************** SETTINGSKÆRM **************/
+
+#settings_screen {
+    background-image: url("settings_skearm.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 80vw;
+    height: 80vw;
+    position: absolute;
+    left: 11vw;
+    top: 7vw;
+}
+
+
+#sound_sprite {
+    background-size: 500% 100%;
+    width: 15vw;
+    height: 15vw;
+    top: 24vw;
+    left: 44vw;
+    background-image: url("toggle_sprite.svg");
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+
+}
+
+#music_sprite {
+    background-size: 500% 100%;
+    width: 15vw;
+    height: 15vw;
+    top: 20vw;
+    left: 37;
+    background-image: url("toggle_sprite.svg");
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+
+}
+
+}
+
+#sound_sprite {
+    top: 14.5vw;
+    left: 64vw;
+
+}
+
+#music_sprite {
+    top: 14vw;
+    left: 44vw;
+}
+
+.on {
+    background-position: 0;
+}
+
+.off {
+    background-position: -400% 0;
+}
+
+.off_on {
+    animation-name: on_off_kf;
+    animation-direction: reverse;
+    animation-duration: 0.15s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-timing-function: steps(4);
+}
+
+.on_off {
+    animation-name: on_off_kf;
+    animation-duration: 0.15s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-timing-function: steps(4);
+}
+
+@keyframes on_off_kf {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -400% 0;
+    }
+}
+
+#close_settings {
+    background-image: url("luk_knap.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 17vw;
+    height: 6vw;
+    position: absolute;
+    left: 54.5vw;
+    top: 3vw;
+    z-index: 6;
+    cursor: pointer;
+}
+
+
+/************** GAME START ********************/
+
+#game_background {
+    background-image: url("spil_baggrund.svg");
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+#game_frontground {
+    background-image: url("spil_forgrund.svg");
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.type1 {
+    position: absolute;
+    width: 18vw;
+    height: 24vw;
+    background-image: url(spogelse.svg);
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.type2 {
+    position: absolute;
+    width: 50vw;
+    height: 24vw;
+    background-image: url(barn.svg);
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.position1 {
+    left: 47vw;
+    top: 22vw;
+}
+
+.position2 {
+    left: 33vw;
+    top: 28vw;
+}
+
+.position3 {
+    left: 34vw;
+    top: 3vw;
+}
+
+.position4 {
+    left: 19vw;
+    top: 11vw;
+}
+
+.position5 {
+    left: 0vw;
+    top: 0vw;
+}
+
+.position6 {
+    left: 63vw;
+    top: 10vw;
+}
+
+.position7 {
+    left: 52vw;
+    top: 0vw;
+}
+
+.position8 {
+    left: 68vw;
+    top: 32vw;
+}
+
+.position9 {
+    left: 78vw;
+    top: 0vw;
+}
+
+.position10 {
+    left: 80vw;
+    top: 20vw;
+}
+
+#points {
+    position: absolute;
+    z-index: 2;
+    top: 45vw;
+    left: 90vw;
+    color: yellow;
+    width: 3rem;
+    font-size: 4rem;
+    font-family: lato;
+    text-align: center;
+}
+
+#energy {
+    position: absolute;
+    top: 51vw;
+    left: 84vw;
+    display: flex;
+    justify-content: flex-start;
+    */
+}
+
+.heart {
+
+    z-index: 2;
+    width: 4.5vw;
+    height: 3.96vw;
+    background-image: url(heart.svg);
+    background-size: 100%;
+    margin-right: 0.9vw;
+}
+
+/************* SLUTSKÆRME *****************/
+
+#vandt {
+    background-image: url("vandt.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 88vw;
+    height: 36vw;
+    position: absolute;
+    left: 7vw;
+    top: 9vw;
+}
+
+#spiligen1 {
+    background-image: url("play.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 20vw;
+    height: 7vw;
+    position: absolute;
+    left: 33vw;
+    top: 24vw;
+    cursor: pointer;
+}
+
+#tabt {
+    background-image: url("vandt.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 88vw;
+    height: 36vw;
+    position: absolute;
+    left: 7vw;
+    top: 9vw;
+}
+
+
+#spiligen2 {
+    background-image: url("play.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 20vw;
+    height: 7vw;
+    position: absolute;
+    left: 42vw;
+    top: 37vw;
+    cursor: pointer;
+}
+
+
+/************** ANIMATIONER ****************/
+
+.show {
+    visibility: visible;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+
+.pulse {
+    animation-name: pulse_kf;
+    animation-duration: 1.7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
+}
+
+@keyframes pulse_kf {
+    0% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.blur {
+    filter: blur(5px) brightness(80%);
+}

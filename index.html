@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+<body>
+
+    <div id="screen">
+
+        <!-- ************ STARTSKÆRM ************ -->
+        <div id="start_screen">
+
+            <div id="start" class="hide">
+                <div id="play_button" class="pulse"></div>
+                <div id="settings_button"></div>
+            </div>
+        </div>
+
+        <!-- ************ SETTING ************ -->
+
+        <div id="settings_screen" class="hide">
+
+            <div id="settings_music">
+                <div id="music" class="on">
+                    <div id="music_sprite"></div>
+                </div>
+            </div>
+
+            <div id="settings_sound">
+                <div id="sound" class="on">
+                    <div id="sound_sprite"></div>
+                </div>
+            </div>
+
+            <div id="close_settings"></div>
+
+        </div>
+
+        <!-- ************ INTRODUKTION ********** -->
+
+        <div id="intro" class="hide">
+            <div id="intro_skaerm">
+            </div>
+        </div>
+
+
+        <!-- ************ SPIL ***************-->
+
+        <div id="game">
+
+
+            <div id="game_background" class="hide"></div>
+
+            <div id="game_elements" class="hide">
+                <div id="figure" class="type2 position1"></div>
+                <div id="game_frontground"></div>
+            </div>
+
+            <div id="game_ui">
+                <div id="points">
+                    0
+                </div>
+                <div id="energy">
+                    <div id="heart1" class="heart"></div>
+                    <div id="heart2" class="heart"></div>
+                    <div id="heart3" class="heart"></div>
+                </div>
+                <div id="time"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--  **************** SLUTSKÆRME ************** -->
+
+
+    <div id="tabt" class="hide">
+        <div id="spiligen1"></div>
+    </div>
+
+    <div id="vandt" class="hide">
+        <div id="spiligen2"></div>
+    </div>
+
+
+    </div>
+
+
+    <!--  **************** LYD ************** -->
+
+
+    <audio src="lyd_til_knapper_01.wav" id="click_sound"></audio>
+    <audio src="music.mp3" id="music_mp3"></audio>
+    <audio src="Cheer.mp3" id="cheer"></audio>
+    <audio src="Door.mp3" id="door"></audio>
+    <audio src="Stamp.wav" id="stamp"></audio>
+    <audio src="email_sound.wav" id="email_sound"></audio>
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
