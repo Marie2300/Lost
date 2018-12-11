@@ -147,6 +147,7 @@ function hideSettings() {
 function hideStart() {
     console.log("hideStart")
     document.querySelector("#play_button").removeEventListener("click", hideStart);
+    document.querySelector("#spiligen_button").removeEventListener("click", hideStart);
     document.querySelector("#click_sound").play();
     document.querySelector("#click_sound").currentTime = 0;
     document.querySelector("#start_screen").classList.add("hide");
@@ -163,8 +164,9 @@ function showGame() {
 
     document.querySelector("#game_background").classList.remove("hide");
     document.querySelector("#game_elements").classList.remove("hide")
-    document.querySelector("#spogelse").classList.remove("hide")
-    document.querySelector("#barn").classList.remove("hide")
+    document.querySelector("#game_ui").classList.remove("hide")
+    document.querySelector("#figure").classList.remove("hide")
+
     document.querySelector("#game_frontground").classList.remove("hide")
 
 }
@@ -173,31 +175,31 @@ startGame();
 
 function startGame() {
     console.log("startGame");
-    document.querySelector("#figure").addEventListener("click", clickFigure);
+    document.querySelector("#visning").addEventListener("click", clickVisning);
 }
 
-function clickFigure() {
-    console.log("clickFigure");
+function clickVisning() {
+    console.log("clickVisning");
 
     if (this.classList.contains("type1")) {
-        console.log("Type1");
+        console.log("type1");
         document.querySelector("#heart" + life).classList.add("hide");
         life--;
 
     } else if (this.classList.contains("type2")) {
-        console.log("Type2");
+        console.log("type2");
         points++;
         document.querySelector("#points").innerHTML = points;
     }
 
     this.classList.add("dissappear");
-    this.addEventListener("animationend", nyFigure);
+    this.addEventListener("animationend", nyVisning);
 
     gameStatus();
 }
 
-function nyFigure() {
-    console.log("nyFigure");
+function nyVisning() {
+    console.log("nyVisning");
     this.className = "";
     this.classList.add("type" + Math.floor((Math.random() * 2) + 1));
     this.classList.add("position" + Math.floor((Math.random() * 10) + 1));
@@ -211,18 +213,38 @@ function gameStatus() {
     console.log(life);
     if (life == 0) {
         document.querySelector("#tabt").classList.remove("hide");
-    } else if (points == 10) {
-
+    } else if (points == 5) {
         document.querySelector("#vandt").classList.remove("hide");
     }
 
 
 }
 
-function tabt() {
+//************* GAMEOVER ************************
+
+function visTabt() {
+    console.log("tabt")
+    document.querySelector("#tabt").classList.remove("hide");
+
+    document.querySelector("#spiligen_button").addEventListener("click", hideStart);
+
+    document.querySelector("#music_mp3").volume = 0.10;
+    document.querySelector("#door").play();
+    document.querySelector("#door").volume = 0.50;
 
 }
 
-function vandt() {
+
+function visVandt() {
+    console.log("visVandt")
+    document.querySelector("#vandt").classList.remove("hide");
+
+    document.querySelector("#spiligen_button").addEventListener("click", hideStart);
+
+    document.querySelector("#music_mp3").volume = 0.10;
+    document.querySelector("#cheer").play();
+    document.querySelector("#cheer").volume = 0.20;
 
 }
+
+sidenVises();
