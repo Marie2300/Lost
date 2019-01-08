@@ -46,6 +46,7 @@
 
         <div id="intro" class="hide">
             <div id="intro_skaerm">
+                <div id="videre_knap"></div>
             </div>
         </div>
 
@@ -80,11 +81,15 @@
 
 
         <div id="tabt" class="hide">
-            <div id="spiligen_button" class="pulse"></div>
+            <a href="javascript:history.go(0)">
+                <div id="spiligen_button"></div>
+            </a>
         </div>
 
         <div id="vandt" class="hide">
-            <div id="spiligen_button" class="pulse"></div>
+            <a href="javascript:history.go(0)">
+                <div id="spiligen_button"></div>
+            </a>
         </div>
 
 
@@ -94,10 +99,10 @@
     <!--  **************** LYD ************** -->
 
 
-    <audio src="lyd_til_knapper_01.wav" id="click_sound"></audio>
-    <audio src="music.mp3" id="music_mp3"></audio>
-    <audio src="Cheer.mp3" id="cheer"></audio>
-    <audio src="Door.mp3" id="door"></audio>
+    <audio src="Lyde/lyd_til_knapper_01.wav" id="click_sound"></audio>
+    <audio src="Lyde/music.mp3" id="music_mp3"></audio>
+    <audio src="Lyde/game_over.mp3" id="gameover_audio"></audio>
+    <audio src="Lyde/vandt.mp3" id="vandt_audio"></audio>
     <audio src="Stamp.wav" id="stamp"></audio>
     <audio src="email_sound.wav" id="email_sound"></audio>
 

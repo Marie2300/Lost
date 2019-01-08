@@ -111,10 +111,8 @@ function soundOff() {
     document.querySelector("#sound_sprite").classList.add("off");
 
     document.querySelector("#click_sound").muted = true;
-    document.querySelector("#stamp").muted = true;
-    document.querySelector("#door").muted = true;
-    document.querySelector("#cheer").muted = true;
-    document.querySelector("#email_sound").muted = true;
+    document.querySelector("#gameover_audio").muted = true;
+    document.querySelector("#vandt_audio").muted = true;
 }
 
 function soundOn() {
@@ -125,9 +123,8 @@ function soundOn() {
     document.querySelector("#sound_sprite").classList.add("on");
 
     document.querySelector("#click_sound").muted = false;
-    document.querySelector("#stamp").muted = false;
-    document.querySelector("#door").muted = false;
-    document.querySelector("#cheer").muted = false;
+    document.querySelector("#gameover_audio").muted = false;
+    document.querySelector("#vandt_audio").muted = false;
 }
 
 
@@ -150,6 +147,31 @@ function hideStart() {
     document.querySelector("#spiligen_button").removeEventListener("click", hideStart);
     document.querySelector("#click_sound").play();
     document.querySelector("#click_sound").currentTime = 0;
+    document.querySelector("#start_screen").classList.add("hide");
+
+    showInstructions();
+}
+
+
+function showInstructions() {
+    console.log("showInstructions")
+    document.querySelector("#intro").classList.remove("hide");
+    document.querySelector("#game_background").classList.remove("hide");
+
+    document.querySelector("#music_mp3").play();
+    document.querySelector("#music_mp3").volume = 0.10;
+
+    document.querySelector("#videre_knap").addEventListener("click", hideInstructions);
+
+}
+
+function hideInstructions() {
+    console.log("hideInstructions")
+    document.querySelector("#videre_knap").removeEventListener("click", hideInstructions);
+    document.querySelector("#click_sound").play();
+    document.querySelector("#click_sound").currentTime = 0;
+
+    document.querySelector("#intro").classList.add("hide");
     document.querySelector("#start_screen").classList.add("hide");
 
     showGame();
@@ -206,6 +228,8 @@ function nyVisning() {
 }
 
 
+
+
 //************ GAME STATUS *******************
 
 function gameStatus() {
@@ -223,28 +247,57 @@ function gameStatus() {
 //************* GAMEOVER ************************
 
 function visTabt() {
-    console.log("tabt")
-    document.querySelector("#tabt").classList.remove("hide");
-
-    document.querySelector("#spiligen_button").addEventListener("click", hideStart);
+    console.log("visTabt")
+    document.querySelector("#tabt").classList.removeEventListener("hide");
 
     document.querySelector("#music_mp3").volume = 0.10;
-    document.querySelector("#door").play();
-    document.querySelector("#door").volume = 0.50;
+    document.querySelector("#gameover_audio").play();
+    document.querySelector("#spiligen_button").classList.add("click", hideSlut);
 
 }
 
 
 function visVandt() {
     console.log("visVandt")
-    document.querySelector("#vandt").classList.remove("hide");
-
-    document.querySelector("#spiligen_button").addEventListener("click", hideStart);
+    document.querySelector("#vandt").classList.removeEventListener("hide");
 
     document.querySelector("#music_mp3").volume = 0.10;
-    document.querySelector("#cheer").play();
-    document.querySelector("#cheer").volume = 0.20;
+    document.querySelector("#vandt_audio").play();
+    document.querySelector("#spiligen_button").classList.add("click", hideSlut);
+
 
 }
 
-sidenVises();
+//************* GAMEOVER SLUT ************************
+
+function hideSlut() {
+    document.querySelector("#spiligen_button").removeEventListener("click", hideSlut)
+
+
+    document.querySelector("#game_background").classList.remove("hide");
+    document.querySelector("#game_elemts").classList.remove("hide");
+    document.querySelector("#game_ui").classList.remove("hide");
+    document.querySelector("#figure").classList.remove("hide");
+    document.querySelector("#game_frontground").classList.remove("hide")
+
+    sidenVises();
+}
+
+function tidenGaar() {
+    console.log("tidenGaar")
+
+    //trækker 1 fra den tid vi har defineret i starten
+    timeleft--;
+
+
+    //her bestemmer at hver 1 sek så skal der opsumeres hvor lang tid der er tilbage. Her skrives det i ms. Man skriver "tidenGaar" fordi den skal kalde på sig selv igen efter 1 sek. Grunden til den er i en if sætning er fordi man skal sige at hvis tiden er større end nul så skal den tælle ned og hvis tiden ikke er større end nul har man jo tabt og man går til gameover
+
+    if (timeleft > 0) {
+        setTimeout(tidenGaar, 1000);
+    } else if (erSpilletStoppet == false) {
+
+        gameOver();
+    }
+
+    console.log(timeleft);
+}
